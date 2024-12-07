@@ -171,6 +171,7 @@ class ComplexConv2d(Module):
         kernel_size=3,
         stride=1,
         padding=0,
+        padding_mode="zeros",
         dilation=1,
         groups=1,
         bias=True,
@@ -185,6 +186,7 @@ class ComplexConv2d(Module):
             dilation,
             groups,
             bias,
+            padding_mode=padding_mode,
         )
         self.conv_i = Conv2d(
             in_channels,
@@ -195,6 +197,7 @@ class ComplexConv2d(Module):
             dilation,
             groups,
             bias,
+            padding_mode=padding_mode,
         )
 
     def forward(self, inp):
