@@ -13,6 +13,7 @@ from torch.nn.functional import (
     interpolate,
     max_pool2d,
     relu,
+    leaky_relu,
     sigmoid,
     tanh,
 )
@@ -57,6 +58,11 @@ def complex_normalize(inp):
 
 def complex_relu(inp):
     return relu(inp.real).type(torch.complex64) + 1j * relu(inp.imag).type(
+        torch.complex64
+    )
+
+def complex_leakyrelu(inp):
+    return leaky_relu(inp.real).type(torch.complex64) + 1j * leaky_relu(inp.imag).type(
         torch.complex64
     )
 
